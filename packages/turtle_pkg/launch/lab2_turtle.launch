@@ -1,0 +1,11 @@
+<launch>
+
+<include file="$(find turtle_pkg)/launch/lab1_turtle.launch"/>
+<!-- <param name="/direction_pub_rate" type="double" value="1.0" /> -->
+
+    <group ns="turtles2">
+        <node pkg="turtle_pkg" name="sub" type="turtlesub_node.py" output="screen"/>
+        <node pkg="rostopic" type="rostopic" name="direction_debug" args="echo /turtle_dir" output="screen"/>
+    </group>
+
+</launch>

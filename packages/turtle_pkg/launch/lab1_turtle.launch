@@ -1,0 +1,8 @@
+  <launch>
+  
+    <group ns="turtles">
+	    <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+	    <node pkg="turtle_pkg" name="square" type="turtlesqr_node.py"/>
+    </group>
+  
+  </launch>

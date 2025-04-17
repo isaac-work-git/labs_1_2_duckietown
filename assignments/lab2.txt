@@ -1,0 +1,63 @@
+What happens when starting the lane following demo:
+The lane following demo introduces the camera node. The camera node is connected to 
+image compression and other nodes and topics that help it recieve input and data for 
+the robot to process.
+
+Part IV step 3:
+1. /quackdealer/wheels_driver_node/wheels_cmd
+
+2. "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+vel_left: 0.5
+vel_right: 0.5" 
+ 
+
+3. "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+vel_left: 0.0
+vel_right: 0.0" 
+
+4. "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+vel_left: 0.5
+vel_right: 0.0" 
+
+
+5. "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+vel_left: 0.0
+vel_right: 0.5" 
+
+
+Part IV step 5:
+How do the two control topics change? 
+- /simple_stop_controller_node/car_cmd
+/lane_controller_node/car_cmd
+
+Which topic is used when? 
+-/simple_stop_controller_node is used when in manual mode. It is used to stop the car
+when not receiving input. /lane_controller_node is used to when in the autonomous lane 
+control demo.
+
+How does the fsm topic work within all of this?
+- The fsm topic will keep track of which mode the bot is in. That will allow the 
+car_cmd_switch_node to know whether the car command should be autonomous or manual.
+
+What do you think this "car_cmd_switch_node" does?
+-It switches between manual driving mode and autonomous lane detection mode
